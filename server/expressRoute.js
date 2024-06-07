@@ -17,15 +17,16 @@ app.get("/user-link", (req, res) => {
   // We need to encode this data in a token
   const token = jwt.sign(apptData, linkSecret);
 
-  // res.send(`https://localhost:5173/join-video?token=${token}`);
-  res.send(token);
+  res.send(`https://localhost:5173/join-video?token=${token}`);
+  // res.send(token);
 
   // res.json("Testing of app");
 });
 
-app.get("/validate-link", (req, res) => {
-  const { token } = req.query; //get the token from link request
+app.post("/validate-link", (req, res) => {
+  // const { token } = req.query; //get the token from link request
+  const { token } = req.body;
   const decodedToken = jwt.verify(token, linkSecret);
 
-  res.json(decodedToken);
+  res.json({ decoded: decodedToken });
 });

@@ -2,11 +2,14 @@
 const fs = require("fs"); // for file system
 const https = require("https");
 const express = require("express");
+const cors = require("cors");
 const socketio = require("socket.io");
 
 const app = express();
+app.use(cors()); // open our express API to any dormain
 
 app.use(express.static(__dirname + "/public"));
+app.use(express.json()); // to parse json through the body with the body parser
 
 const key = fs.readFileSync("./certs/cert.key");
 const cert = fs.readFileSync("./certs/cert.crt");
