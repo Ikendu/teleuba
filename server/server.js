@@ -14,7 +14,7 @@ const cert = fs.readFileSync("./certs/cert.crt");
 
 const expressServer = https.createServer({ key, cert }, app);
 const io = socketio(expressServer, {
-  cors: ["https://localhost:5137", "https://localhost:5000"],
+  cors: ["https://localhost:5173", "https://localhost:5000"],
 });
 
 expressServer.listen(4000, () => console.log("Port running on port 4000"));
