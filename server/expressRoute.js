@@ -10,8 +10,8 @@ const linkSecret = "fjduir3940@%kdfj,mxnruro";
 app.get("/user-link", (req, res) => {
   // data for the end-user's appt
   const apptData = {
-    proffesionalFullName: "Mr. Chibundu Aniede",
-    data: Date.now(),
+    name: "Mr. Chibundu Aniede",
+    date: Date.now(),
   };
 
   // We need to encode this data in a token
@@ -25,8 +25,11 @@ app.get("/user-link", (req, res) => {
 
 app.post("/validate-link", (req, res) => {
   // const { token } = req.query; //get the token from link request
-  const { token } = req.body;
-  const decodedToken = jwt.verify(token, linkSecret);
 
-  res.json({ decoded: decodedToken });
+  // get the token from the body of the post request (thanks express.json())
+  const { token } = req.body;
+  //decode the token with our secret
+  const decodedToken = jwt.verify(token, linkSecret);
+  // send the decoded data {our object} back to the front-end
+  res.json(decodedToken);
 });
