@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import "./videoComponents.css";
+import CallInfo from "./CallInfo";
+import ChatWindow from "./ChatWindow";
 
 function MainVideoPage() {
   //query string finder hpok
   const [searchParam, setSearchParams] = useSearchParams();
-  const [appInfo, setAppinfo] = useState({});
+  const [apptInfo, setApptinfo] = useState({});
 
   useEffect(() => {
     //grab the token out of the string
@@ -16,7 +18,7 @@ function MainVideoPage() {
         token,
       });
       console.log(resp.data);
-      setAppinfo(resp.data);
+      setApptinfo(resp.data);
     };
     fetchValidatedLink();
   }, []);
@@ -27,6 +29,8 @@ function MainVideoPage() {
       <div className="video-chat-wrapper">
         <video src="" id="large-feed" autoPlay controls playsInline></video>
         <video src="" id="own-feed" autoPlay controls playsInline></video>
+        {apptInfo.professionalsFullName && <CallInfo apptInfo={apptInfo} />}
+        <ChatWindow />
       </div>
     </div>
   );

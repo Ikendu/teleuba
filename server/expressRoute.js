@@ -10,8 +10,8 @@ const linkSecret = "fjduir3940@%kdfj,mxnruro";
 app.get("/user-link", (req, res) => {
   // data for the end-user's appt
   const apptData = {
-    name: "Mr. Chibundu Aniede",
-    date: Date.now(),
+    professionalsFullName: "Mr. Chibundu Aniede",
+    apptDate: Date.now(),
   };
 
   // We need to encode this data in a token
