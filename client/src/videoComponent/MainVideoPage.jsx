@@ -4,6 +4,7 @@ import axios from "axios";
 import "./videoComponents.css";
 import CallInfo from "./CallInfo";
 import ChatWindow from "./ChatWindow";
+import ActionButtons from "./ActionButtons";
 
 function MainVideoPage() {
   //query string finder hpok
@@ -32,6 +33,7 @@ function MainVideoPage() {
         {apptInfo.professionalsFullName && <CallInfo apptInfo={apptInfo} />}
         <ChatWindow />
       </div>
+      <ActionButtons />
     </div>
   );
 }

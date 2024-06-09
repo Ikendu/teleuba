@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import updateCallStatus from "../redux-elements/actions/updateCallStatus";
+import updateCallStatus from "../redux-elemets/actions/updateCallStatus";
 
 const HangupButton = () => {
   const dispatch = useDispatch();
