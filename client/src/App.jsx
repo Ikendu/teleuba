@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom";
 import "./App.css";
 import socketServer from "./utilities/socketServer";
 import MainVideoPage from "./videoComponent/MainVideoPage";
@@ -17,8 +17,14 @@ function App() {
 
 const Home = () => (
   <div>
-    <h1>My Home Component</h1>
-    <p>testing out changes</p>
+    <h1>Teleuba</h1>
+    <h3>we are here for you at all times</h3>
+    <p>You can always reach out to us</p>
+    <h3>
+      Click <Link to={"/join-video"}>here</Link> to visit the appointment and
+      conversation page
+    </h3>
+    <h4>Thank you for coming around</h4>
   </div>
 );
 const ExamplePage = () => (

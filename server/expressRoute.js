@@ -7,7 +7,7 @@ const linkSecret = "fjduir3940@%kdfj,mxnruro";
 // this route is for us: in Production
 // would send this out, we will print it out and pest it in, It will drop
 // us in our React site with the right info for client to make an offer
-app.get("/user-link", (req, res) => {
+app.get("/", (req, res) => {
   // data for the end-user's appt
   const apptData = {
     professionalsFullName: "Mr. Chibundu Aniede",
