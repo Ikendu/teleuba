@@ -1,8 +1,7 @@
 import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom";
 import "./App.css";
-
 import MainVideoPage from "./videoComponent/MainVideoPage";
-import socketServer from "./utilities/sockerConnection";
+import socketServer from "./webRTCUtilities/sockerConnection";
 
 function App() {
   return (

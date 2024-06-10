@@ -7,8 +7,8 @@ import ChatWindow from "./ChatWindow";
 import ActionButtons from "./ActionButtons";
 import addStream from "../redux-elemets/actions/addStream";
 import { useDispatch } from "react-redux";
-import createPeerConnection from "../utilities/creatPeerConnection";
-import socketServer from "../utilities/sockerConnection";
+import createPeerConnection from "../webRTCUtilities/creatPeerConnection";
+import socketServer from "../webRTCUtilities/sockerConnection";
 import callStatusReducer from "../redux-elemets/reducers/callStatusReducer";
 
 function MainVideoPage() {
