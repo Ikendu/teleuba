@@ -18,14 +18,14 @@ function MainVideoPage() {
     // fetch the users media
     const fetchMedia = async () => {
       let constrians = {
-        video: false, // must have one constraints just dont show it yet
+        video: true, // must have one constraints just dont show it yet
         audio: false,
       };
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constrians);
         // dispatch will send this function to the redux dispatcher so all reducers are notified
         // we send two args, the who and the stream
-        dispatch("localStream", stream);
+        dispatch(addStream("localStream", stream));
       } catch (error) {
         console.log(error);
       }

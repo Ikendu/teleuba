@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
 import callStatusReducer from "./callStatusReducer";
-import streamReducer from "./streamReducer";
+import streamsReducer from "./streamsReducer";
 
 const rootReducer = combineReducers({
   callStatus: callStatusReducer,
-  stream: streamReducer,
+  streams: streamsReducer,
 });
 
 export default rootReducer;
