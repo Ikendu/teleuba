@@ -5,11 +5,14 @@ import "./videoComponents.css";
 import CallInfo from "./CallInfo";
 import ChatWindow from "./ChatWindow";
 import ActionButtons from "./ActionButtons";
+import addStream from "../redux-elemets/actions/addStream";
+import { useDispatch } from "react-redux";
 
 function MainVideoPage() {
   //query string finder hpok
   const [searchParam, setSearchParams] = useSearchParams();
   const [apptInfo, setApptinfo] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // fetch the users media
@@ -19,7 +22,10 @@ function MainVideoPage() {
         audio: false,
       };
       try {
-        const streams = await navigator.mediaDevices.getUserMedia(constrians);
+        const stream = await navigator.mediaDevices.getUserMedia(constrians);
+        // dispatch will send this function to the redux dispatcher so all reducers are notified
+        // we send two args, the who and the stream
+        dispatch("localStream", stream);
       } catch (error) {
         console.log(error);
       }
