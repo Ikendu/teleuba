@@ -4,7 +4,7 @@
 //     stream = video and audio tracks
 //     peerConnecion = actual webRTC connection
 // }
-export default (state, action) => {
+export default (state = {}, action) => {
   if (action.type === "ADD_STREAM") {
     const copyState = { ...state };
     // this will over-write the who with {who and stream}
