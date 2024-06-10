@@ -7,6 +7,7 @@ import ChatWindow from "./ChatWindow";
 import ActionButtons from "./ActionButtons";
 import addStream from "../redux-elemets/actions/addStream";
 import { useDispatch } from "react-redux";
+import createPeerConnection from "../utilities/creatPeerConnection";
 
 function MainVideoPage() {
   //query string finder hpok
@@ -26,6 +27,10 @@ function MainVideoPage() {
         // dispatch will send this function to the redux dispatcher so all reducers are notified
         // we send two args, the who and the stream
         dispatch(addStream("localStream", stream));
+        const { peerConection, remoteStream } = createPeerConnection;
+        dispatch(addStream("remote1", remoteStream, peerConection));
+        // we have a peerConnection so we can now make an offer
+        // we still SDP information about the feed and we have no track yet
       } catch (error) {
         console.log(error);
       }
