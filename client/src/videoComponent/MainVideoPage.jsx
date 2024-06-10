@@ -12,6 +12,22 @@ function MainVideoPage() {
   const [apptInfo, setApptinfo] = useState({});
 
   useEffect(() => {
+    // fetch the users media
+    const fetchMedia = async () => {
+      let constrians = {
+        video: false, // must have one constraints just dont show it yet
+        audio: false,
+      };
+      try {
+        const streams = await navigator.mediaDevices.getUserMedia(constrians);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchMedia();
+  }, []);
+
+  useEffect(() => {
     //grab the token out of the string
     const token = searchParam.get("token");
     const fetchValidatedLink = async () => {
