@@ -9,7 +9,7 @@ import addStream from "../redux-elemets/actions/addStream";
 import { useDispatch } from "react-redux";
 import createPeerConnection from "../webRTCUtilities/creatPeerConnection";
 import socketServer from "../webRTCUtilities/sockerConnection";
-import callStatusReducer from "../redux-elemets/reducers/callStatusReducer";
+import updateCallStatus from "../redux-elemets/actions/updateCallStatus";
 
 function MainVideoPage() {
   //query string finder hpok
@@ -30,7 +30,7 @@ function MainVideoPage() {
         const stream = await navigator.mediaDevices.getUserMedia(constrians);
         // dispatch will send this function to the redux dispatcher so all reducers are notified
         // we send two args, the who and the stream
-        dispatch(callStatusReducer("haveMedia", true)); // update our callStatus to know that we now have the media
+        dispatch(updateCallStatus("haveMedia", true)); // update our callStatus to know that we now have the media
         dispatch(addStream("localStream", stream));
         const { peerConection, remoteStream } = createPeerConnection;
         dispatch(addStream("remote1", remoteStream, peerConection));
@@ -79,7 +79,7 @@ function MainVideoPage() {
         {apptInfo.professionalsFullName && <CallInfo apptInfo={apptInfo} />}
         <ChatWindow />
       </div>
-      <ActionButtons />
+      <ActionButtons smallFeedlEl={smallFeedEl} />
     </div>
   );
 }
